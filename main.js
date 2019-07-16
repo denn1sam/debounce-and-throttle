@@ -39,13 +39,14 @@ function throttle(func, wait) {
 const throttledFunc = throttle(() => {
   event.target.style.backgroundColor = getRandomColor();
   timeToEnd(2000);
-}, 2000);
+}, 10);
 
 ul.addEventListener('click', throttledFunc);
 
 function getRandomColor() {
   return `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`;
 }
+
 function timeToEnd(time) {
   const endTime = new Date().getTime() + time;
   const interval = setInterval(() => {
